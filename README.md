@@ -10,7 +10,7 @@ alias gitdotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 
 Then the cloning steps are
 ```
-git clone --bare <git-repo-url> $HOME/.dotfiles-repo
+git clone --bare git@github.com:guiohm/myWork_WSL_DotFiles.git $HOME/.dotfiles-repo
 gitdotfiles checkout
 gitdotfiles config --local status.showUntrackedFiles no
 ```
@@ -18,7 +18,7 @@ gitdotfiles config --local status.showUntrackedFiles no
 ## Automated Checkout Script
 
 ```
-curl -Lks http://<TODO: Replace after push on github>/.dotfiles-install/install.sh` | /bin/bash
+curl -Lks https://raw.githubusercontent.com/guiohm/myWork_WSL_DotFiles/master/.dotfiles-install/install.sh | /bin/bash
 ```
 
 See `.dotfiles-install/install.sh`
