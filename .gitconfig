@@ -40,7 +40,7 @@
         legacyheaders = false
         pager = less -+e
 [branch]
-#        autosetuprebase = always
+        autosetuprebase = always
 [repack]
         usedeltabaseoffset = true
 [difftool]

@@ -201,13 +201,13 @@ function get_jira_task_from_current_git_branch {
 }
 
 function gci() {
-    MSG="$(get_jira_task_from_current_git_branch): $1"
-    git commit -m "$MSG"
+#    MSG="$(get_jira_task_from_current_git_branch): $1"
+    git commit -m $1 #"$MSG"
 }
 
 function gaci() {
-    MSG="$(get_jira_task_from_current_git_branch): $1"
-    git commit -am "$MSG"
+#    MSG="$(get_jira_task_from_current_git_branch): $1"
+    git commit -am $1 #"$MSG"
 }
 
 function cuttail() # cut last n lines in file, 10 by default
