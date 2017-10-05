@@ -36,6 +36,6 @@ sudo dpkg -i fish-common_2.6.0-1~trusty_all.deb fish_2.6.0-1~trusty_amd64.deb
 ### Install powerline
 
 From memory, the steps should roughly be something like...
-- Install pip : `sudo apt-get install python-pip`
+- Install pip : `sudo apt-get install python3-pip`
 - `pip install powerline-status`
 - then inside fish `powerline-fish && powerline-setup`
