@@ -27,14 +27,15 @@ gitdotfiles config --local status.showUntrackedFiles no
 
 apt-get only has the 2.0 version of Fish. But Poweline needs 2.1+. So here are the steps to install Fish 2.6
 ```
-wget https://launchpad.net/~fish-shell/+archive/ubuntu/release-2/+files/fish-common_2.6.0-1~trusty_all.deb
-wget https://launchpad.net/~fish-shell/+archive/ubuntu/release-2/+files/fish_2.6.0-1~trusty_amd64.deb
-dpkg -i fish-common_2.6.0-1~trusty_all.deb fish_2.6.0-1~trusty_amd64.deb
+sudo apt-get install bc &&
+wget https://launchpad.net/~fish-shell/+archive/ubuntu/release-2/+files/fish-common_2.6.0-1~trusty_all.deb &&
+wget https://launchpad.net/~fish-shell/+archive/ubuntu/release-2/+files/fish_2.6.0-1~trusty_amd64.deb &&
+sudo dpkg -i fish-common_2.6.0-1~trusty_all.deb fish_2.6.0-1~trusty_amd64.deb
 ```
 
 ### Install powerline
 
 From memory, the steps should roughly be something like...
-- Install pip
+- Install pip : `sudo apt-get install python-pip`
 - `pip install powerline-status`
 - then inside fish `powerline-fish && powerline-setup`
