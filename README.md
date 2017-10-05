@@ -10,6 +10,10 @@ curl -Lks https://raw.githubusercontent.com/guiohm/myWork_WSL_DotFiles/master/.d
 
 See `.dotfiles-install/install.sh`
 
+### VIM: Update plugins
+
+Launch `vim` and type `:PlugInstall`
+
 ### Or Manually
 
 ```
