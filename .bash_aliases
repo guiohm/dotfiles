@@ -50,7 +50,7 @@ alias japi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add_j4m.xm
 alias wapi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add.xml' http://api-dev.work4us.gbordiau.lab3.work4labs.com/v2/pages/159068240784310/jobs"
 
 # Specific dotfiles git repo alias
-alias gitdotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
+alias gitdotfiles='git --git-dir="$HOME/.dotfiles-repo/" --work-tree="$HOME"'
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls)
