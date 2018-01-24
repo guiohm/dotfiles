@@ -1,6 +1,6 @@
-git clone --bare git@github.com:guiohm/myWork_WSL_DotFiles.git $HOME/.dotfiles-repo
+git clone --bare git@github.com:guiohm/myWork_WSL_DotFiles.git "$HOME/.dotfiles-repo"
 function config {
-   git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME $@
+   git --git-dir="$HOME/.dotfiles-repo/" --work-tree="$HOME" $@
 }
 mkdir -p .config-backup
 config checkout
