@@ -1,4 +1,10 @@
 
+# Enable custom pythonrc for autocomplete
+# export PYTHONSTARTUP=$HOME/.pythonrc
+
+# source ~/.git-completion.bash
+
+# PATH="$PATH"
 
 #-------------------
 # Personnal Aliases
@@ -19,8 +25,11 @@ alias svnst='svn st --ignore-externals'
 alias celdev='celeryd -E -B --config=celeryconfig.celeryconfig --loglevel=DEBUG'
 alias g='git'
 alias gba='git branch -r && git branch'
-alias gt='git status -sb'
+alias gt='git status --show-stash'
 alias gc='git commit -v'
+alias gci='git commit -m'
+alias gaci='git commit -am'
+alias gcom='git checkout master'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gitlog="git log origin/staging --not origin/production --decorate --pretty=format:'%h;;%s;%an;%ai'"
@@ -30,6 +39,7 @@ alias gitmergemaster='CURR_BRANCH=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/
 alias gitclean='git checkout master && git pull && git remote prune origin && git branch --merged master | egrep  -v "(master|staging|production)$" | xargs git branch -d && git gc'
 alias gl='git pull'
 alias gp='git push'
+alias gpushmaster='git push origin master:production && git push origin master:staging'
 alias glp='git pull && git push'
 alias gstl='git stash && git pull && git stash pop'
 alias gstp='git stash && git pull && git push && git stash pop'
@@ -55,7 +65,7 @@ alias gitdotfiles='git --git-dir="$HOME/.dotfiles-repo/" --work-tree="$HOME"'
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls)
 #-------------------------------------------------------------
-alias ll="ls -l --group-directories-first"
+alias ll="ls -Al --group-directories-first"
 alias ls='ls -hF --color'  # add colors for filetype recognition
 alias la='ls -Al'          # show hidden files
 alias lx='ls -lXB'         # sort by extension
@@ -98,7 +108,7 @@ function ff() { find . -type f -iname '*'$*'*' -ls ; }
 function fe()
 { find . -type f -iname '*'${1:-}'*' -exec ${2:-file} {} \;  ; }
 
-# même chose pour dossiers :
+# mme chose pour dossiers :
 function de()
 { find . -type d -iname '*'${1:-}'*' -exec ${2:-} {} \;  ; }
 
@@ -200,15 +210,15 @@ function get_jira_task_from_current_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' | cut -d'/' -f 2
 }
 
-function gci() {
+#function gci() {
 #    MSG="$(get_jira_task_from_current_git_branch): $1"
-    git commit -m $1 #"$MSG"
-}
+#    git commit -m "$MSG"
+#}
 
-function gaci() {
+#function gaci() {
 #    MSG="$(get_jira_task_from_current_git_branch): $1"
-    git commit -am $1 #"$MSG"
-}
+#    git commit -am "$MSG"
+#}
 
 function cuttail() # cut last n lines in file, 10 by default
 {
@@ -373,28 +383,28 @@ NC2='\[\033[00m\]'              # No Color
 
 
 # Looks best on a terminal with black background.....
-echo -e "${CYAN}This is BASH ${RED}${BASH_VERSION%.*}\
-${CYAN} - DISPLAY on ${RED}$DISPLAY${NC}\n"
-date
+# echo -e "${CYAN}This is BASH ${RED}${BASH_VERSION%.*}\
+# ${CYAN} - DISPLAY on ${RED}$DISPLAY${NC}\n"
+# date
 if [ -x /usr/bin/fortune ]; then
     /usr/bin/fortune -c     # Makes our day a bit more fun.... :-)
 fi
 
-tt=`date +"%T" | cut -c1-2`
-NAME=`grep "^$LOGNAME" /etc/passwd | awk -F: ' {print $5}'`
-echo -e "\n\n\n"
+# tt=`date +"%T" | cut -c1-2`
+# NAME=`grep "^$LOGNAME" /etc/passwd | awk -F: ' {print $5}'`
+# echo -e "\n\n\n"
 #tput smso
 #if [ $tt -gt 0 -a $tt -lt 7 ]
 #then
-#	echo " Salut $NAME !!    Et euh... Dormir, t'y penses ? "
+#echo " Salut $NAME !!    Et euh... Dormir, t'y penses ? "
 #elif [ $tt -gt 7 -a $tt -le 14 ]
 #then
-#	echo " Bonjour $NAME !!	   Bien dormi ? "
+#echo " Bonjour $NAME !!   Bien dormi ? "
 #elif [ $tt -gt 14 -a $tt -le 19 ]
 #then
-#	echo " Cher $NAME !!	 La journée se passe bien ? "
+#echo " Cher $NAME !! La journée se passe bien ? "
 #else
-#	echo " Bonsoir $NAME !!	   Je vois que tu passes une bonne soirée ! "
+#echo " Bonsoir $NAME !!   Je vois que tu passes une bonne soirée ! "
 #fi
 #tput rmso
 #echo -e "\n\n"
@@ -410,11 +420,11 @@ trap _exit EXIT
 #-------------------------------------------------------------
 
 
-if [[ "${DISPLAY%%:0*}" != "" ]]; then  
-    HILIT=${red}   # remote machine: prompt will be partly red
-else
-    HILIT=${cyan}  # local machine: prompt will be partly cyan
-fi
+# if [[ "${DISPLAY%%:0*}" != "" ]]; then  
+#     HILIT=${red}   # remote machine: prompt will be partly red
+# else
+#     HILIT=${cyan}  # local machine: prompt will be partly cyan
+# fi
 
 #  --> Replace instances of \W with \w in prompt functions below
 #+ --> to get display of full path name.
@@ -461,7 +471,7 @@ function powerprompt()
 }
 
 # git/svn prompt functions
-#. ~/.git_svn_bash_prompt
+# . ~/.git_svn_bash_prompt
 
 function get_git_svn_info () {
   # Set the PROMPT_SYMBOL variable. We do this first so we don't lose the 
@@ -509,7 +519,7 @@ function powerpromptgit()
     esac
 }
 
-powerpromptgit     # This is the default prompt -- might be slow.
+#powerpromptgit     # This is the default prompt -- might be slow.
                 # If too slow, use fastprompt instead. ...
 
 
