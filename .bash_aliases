@@ -33,11 +33,11 @@ alias gcom='git checkout master'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gitlog="git log origin/staging --not origin/production --decorate --pretty=format:'%h;;%s;%an;%ai'"
-alias gitmaster2staging='git co staging && git pull && git co master && git pull && git merge staging && git push && git push origin master:staging'
-alias gitmergeprod='git co production && git pull && git push && git co staging && git pull && git merge production && git push && git co master && git pull && git merge staging && git push'
-alias gitmergemaster='CURR_BRANCH=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3-) && git co master && git pull && git co $CURR_BRANCH && git merge master && git push'
-alias gitclean='git checkout master && git pull && git remote prune origin && git branch --merged master | egrep  -v "(master|staging|production)$" | xargs git branch -d && git gc'
-alias gl='git pull'
+alias gitpushmaster2staging='git co staging && git pull && git co master && git pull && git merge staging && git push && git push origin master:staging'
+alias gmergeprod='git co production && git pull && git push && git co staging && git pull && git merge production && git push && git co master && git pull && git merge staging && git push'
+alias gmergemaster='CURR_BRANCH=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3-) && git co master && git pull && git co $CURR_BRANCH && git merge master && git push'
+alias gclean='git checkout master && git pull && git remote prune origin && git branch --merged master | egrep  -v "(master|staging|production)$" | xargs git branch -d && git gc'
+alias gl='git pull -v'
 alias gp='git push'
 alias gpushmaster='git push origin master:production && git push origin master:staging'
 alias glp='git pull && git push'
@@ -133,7 +133,7 @@ Usage: fstr [-i] \"pattern\" [\"filename pattern\"] "
         return;
     fi
     find . -type f -name "${2:-*}" -print0 | \
-    xargs -0 egrep --color=always -sn ${case} "$1" 2>&- | more 
+    xargs -0 egrep --color=always -sn ${case} "$1" 2>&- | more
 
 }
 
@@ -157,7 +157,7 @@ Usage: fstr [-i] \"pattern\" \"replacement\" [\"filename pattern\"] "
         return;
     fi
     find . -type f -name "${3:-*}" -print0 | \
-    xargs -0 perl -pi -w -e "s/$1/$2/g;" 2>&- 
+    xargs -0 perl -pi -w -e "s/$1/$2/g;" 2>&-
 
 }
 
@@ -248,13 +248,13 @@ function lowercase()  # move filenames to lowercase
 
 function swap()  # Swap 2 filenames around, if they exist
 {                #(from Uzi's bashrc).
-    local TMPFILE=tmp.$$ 
+    local TMPFILE=tmp.$$
 
     [ $# -ne 2 ] && echo "swap: 2 arguments needed" && return 1
     [ ! -e $1 ] && echo "swap: $1 does not exist" && return 1
     [ ! -e $2 ] && echo "swap: $2 does not exist" && return 1
 
-    mv "$1" $TMPFILE 
+    mv "$1" $TMPFILE
     mv "$2" "$1"
     mv $TMPFILE "$2"
 }
@@ -268,11 +268,11 @@ function swap()  # Swap 2 filenames around, if they exist
 #
 #  Will treat you to a pleasant beep when the task finishes.
 
-function aldo { 
-    while ps -ao pid | grep -q " ${1}$"; 
-        do sleep 1 ; 
+function aldo {
+    while ps -ao pid | grep -q " ${1}$";
+        do sleep 1 ;
     done;
-    echo $'\a'; 
+    echo $'\a';
 }
 
 function extract()
@@ -420,7 +420,7 @@ trap _exit EXIT
 #-------------------------------------------------------------
 
 
-# if [[ "${DISPLAY%%:0*}" != "" ]]; then  
+# if [[ "${DISPLAY%%:0*}" != "" ]]; then
 #     HILIT=${red}   # remote machine: prompt will be partly red
 # else
 #     HILIT=${cyan}  # local machine: prompt will be partly cyan
@@ -474,16 +474,16 @@ function powerprompt()
 # . ~/.git_svn_bash_prompt
 
 function get_git_svn_info () {
-  # Set the PROMPT_SYMBOL variable. We do this first so we don't lose the 
+  # Set the PROMPT_SYMBOL variable. We do this first so we don't lose the
   # return value of the last command.
 #  set_prompt_symbol $?
-#  PROMPT_SYMBOL=$(_get_prompt_symbol) 
+#  PROMPT_SYMBOL=$(_get_prompt_symbol)
 
   # actualise system load value
   _load
 
   unset SVN_REV
-  
+
   # Set the BRANCH variable.
   if is_git_repository ; then
     set_git_branch
@@ -494,7 +494,7 @@ function get_git_svn_info () {
   else
     BRANCH=''
   fi
-  
+
   # Set the bash prompt variable.
   # PS1="\u@\h \w ${BRANCH}${PROMPT_SYMBOL} "
 }
