@@ -6,6 +6,7 @@
 
 # PATH="$PATH"
 
+
 #-------------------
 # Personnal Aliases
 #-------------------
@@ -95,7 +96,20 @@ alias moew='more'
 alias kk='ll'
 alias chwon='chown'
 
+#-------------------------------------------------------------
+# .NET
+#-------------------------------------------------------------
 
+function efCoreDropDbAndRebuildModel() {
+    echo -e "\E[33m \n\nJe vais dropper la Db" && tput sgr0 &&
+    dotnet ef database drop --no-build --force &&
+    echo -e "\E[33m \n\nMaintenant je supprime les migrations existantes"&& tput sgr0 &&
+    rm Migrations/*.cs
+    echo -e "\E[33m \n\nPuis je crée un nouveau snapshot et la migration initiale"&& tput sgr0 &&
+    dotnet ef migrations add init &&
+    echo -e "\E[33m \n\nEt pour finir je recrée la db et les tables"&& tput sgr0 &&
+    dotnet ef database update init
+}
 
 #-------------------------------------------------------------
 # File & string-related functions:
