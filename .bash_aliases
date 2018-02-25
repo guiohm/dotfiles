@@ -31,6 +31,7 @@ alias gc='git commit -v'
 alias gci='git commit -m'
 alias gaci='git commit -am'
 alias gcom='git checkout master'
+alias gcloc='cloc $(git ls-files)' # npm install -g cloc
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gitlog="git log origin/staging --not origin/production --decorate --pretty=format:'%h;;%s;%an;%ai'"
