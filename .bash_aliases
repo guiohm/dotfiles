@@ -103,12 +103,16 @@ alias chwon='chown'
 
 function efCoreDropDbAndRebuildModel() {
     echo -e "\E[33m \n\nJe vais dropper la Db" && tput sgr0 &&
+    echo dotnet ef database drop --no-build --force &&
     dotnet ef database drop --no-build --force &&
     echo -e "\E[33m \n\nMaintenant je supprime les migrations existantes"&& tput sgr0 &&
+    echo rm Migrations/*.cs
     rm Migrations/*.cs
     echo -e "\E[33m \n\nPuis je crée un nouveau snapshot et la migration initiale"&& tput sgr0 &&
+    echo dotnet ef migrations add init &&
     dotnet ef migrations add init &&
     echo -e "\E[33m \n\nEt pour finir je recrée la db et les tables"&& tput sgr0 &&
+    echo dotnet ef database update init
     dotnet ef database update init
 }
 
