@@ -52,6 +52,8 @@
 [github]
 	user = guiohm
 	token = 7691c5559f888d79266ff7a2e199fa2a
+[grep]
+	lineNumber = true
 [push]
         default = tracking
 [winUpdater]
