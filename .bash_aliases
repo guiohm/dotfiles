@@ -6,6 +6,7 @@
 
 # PATH="$PATH"
 
+eval `ssh-agent`
 
 #-------------------
 # Personnal Aliases
@@ -392,6 +393,7 @@ blue='\e[0;34m'
 BLUE='\e[1;34m'
 cyan='\e[0;36m'
 CYAN='\e[1;36m'
+JAUNE='\[\033[33m\]'
 ROUGE='\[\033[01;31m\]'
 VERT='\[\033[1;32m\]'
 BLEU='\[\033[1;34m\]'
@@ -518,6 +520,10 @@ function get_git_svn_info () {
   # PS1="\u@\h \w ${BRANCH}${PROMPT_SYMBOL} "
 }
 
+parse_git_branch() {      
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 function powerpromptgit()
 {
 
@@ -526,9 +532,9 @@ function powerpromptgit()
 #        *term | rxvt*  )
         *)
             if [[ ${EUID} == 0 ]] ; then
-                PS1="${BLEU}[\A-\#]${ROUGE}\u@\h ${BLEU}\w ${BRANCH}${SVN_REV}${PROMPT_SYMBOL} $NC"
+                PS1="${BLEU}[\A-\#]${ROUGE}\u@\h ${BLEU}\w ${parse_git_branch}${PROMPT_SYMBOL} $NC"
             else
-                PS1="${BLEU}[\$LOAD-\!]${VERT}\u@\h ${BLEU}\w ${ROUGE}\ ${VERT}€ $NC"
+		PS1="${BLEU}[\$LOAD-\!]${VERT}\u@\h ${BLEU}\w${JAUNE}$(parse_git_branch) ${VERT}€ $NC"
             fi
             ;;
         linux )
@@ -538,8 +544,34 @@ function powerpromptgit()
     esac
 }
 
-#powerpromptgit     # This is the default prompt -- might be slow.
+# powerpromptgit     # This is the default prompt -- might be slow.
                 # If too slow, use fastprompt instead. ...
+
+#-------------------------------------------------------------
+# Git prompt (using submodule)
+#-------------------------------------------------------------
+   # Set config variables first
+   GIT_PROMPT_ONLY_IN_REPO=0
+
+   # GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+   # GIT_PROMPT_IGNORE_SUBMODULES=1 # uncomment to avoid searching for changed files in submodules
+   # GIT_PROMPT_WITH_VIRTUAL_ENV=0 # uncomment to avoid setting virtual environment infos for node/python/conda environments
+
+   # GIT_PROMPT_SHOW_UPSTREAM=1 # uncomment to show upstream tracking branch
+   # GIT_PROMPT_SHOW_UNTRACKED_FILES=normal # can be no, normal or all; determines counting of untracked files
+
+   # GIT_PROMPT_SHOW_CHANGED_FILES_COUNT=0 # uncomment to avoid printing the number of changed files
+
+   # GIT_PROMPT_STATUS_COMMAND=gitstatus_pre-1.7.10.sh # uncomment to support Git older than 1.7.10
+
+   # GIT_PROMPT_START=...    # uncomment for custom prompt start sequence
+   # GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
+
+   # as last entry source the gitprompt script
+   # GIT_PROMPT_THEME=Custom # use custom theme specified in file GIT_PROMPT_THEME_FILE (default ~/.git-prompt-colors.sh)
+   # GIT_PROMPT_THEME_FILE=~/.git-prompt-colors.sh
+   GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
+source ~/.bash-git-prompt/gitprompt.sh
 
 
 #-------------------------------------------------------------
