@@ -43,6 +43,8 @@
 	symlinks = true
         legacyheaders = false
         pager = less -+e
+[grep]
+	lineNumber = true
 [branch]
         autosetuprebase = always
 [repack]
@@ -57,4 +59,12 @@
 [push]
         default = tracking
 [winUpdater]
-	recentlySeenVersion = 2.16.3.windows.1
+	recentlySeenVersion = 2.20.1.windows.1
+[github]
+	user = guiohm
+	token = 7691c5559f888d79266ff7a2e199fa2a
+[difftool "sourcetree"]
+	cmd = '' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = "'' "
+	trustExitCode = true

@@ -47,7 +47,7 @@ alias glp='git pull && git push'
 alias gstl='git stash && git pull && git stash pop'
 alias gstp='git stash && git pull && git push && git stash pop'
 alias gsr='make reset_submodules'
-alias msh='mosh --server='\''LC_CTYPE=en_US.UTF-8 mosh-server'\'
+alias msh="mosh --server='\''LC_CTYPE=en_US.UTF-8 mosh-server'\'"
 alias w4ubuild='~/work4us/symfony doctrine:build --all --application=facebook --and-load && ~/work4us/symfony work4us:update-db && ~/work4us/symfony work4us:mongodb-setup --drop-database=true &&  ~/work4us/symfony work4us:sync-mongo'
 alias j4mebuild='~/work4schools/symfony doctrine:build --application=facebook --all --and-load && ~/work4schools/symfony jobs4me:update-db'
 alias wprodsql='mysql --defaults-file=/home/web/.my.lab4.cnf --prompt="[Work4Us-prod] > " -vvv --database="work4us"'
@@ -61,6 +61,8 @@ alias tailj='tail -f ~/jobs4me/log/j4m_dev.log'
 alias tailw='tail -f ~/work4us/log/w4u_dev.log'
 alias japi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add_j4m.xml' http://api-dev.j4m.gbordiau.lab3.work4labs.com/v2/pages/159068240784310/jobs"
 alias wapi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add.xml' http://api-dev.work4us.gbordiau.lab3.work4labs.com/v2/pages/159068240784310/jobs"
+
+alias code='/c/Program\ Files/Microsoft\ VS\ Code\ Insiders/bin/code-insiders'
 
 # Specific dotfiles git repo alias
 alias gitdotfiles='git --git-dir="$HOME/.dotfiles-repo/" --work-tree="$HOME"'
@@ -153,7 +155,7 @@ Usage: fstr [-i] \"pattern\" [\"filename pattern\"] "
         return;
     fi
     find . -type f -name "${2:-*}" -print0 | \
-    xargs -0 egrep --color=always -sn ${case} "$1" 2>&- | more
+    xargs -0 egrep --color=always -sn ${case} "$1" 2>&- | less
 
 }
 
