@@ -45,7 +45,7 @@ alias gmergemaster='CURR_BRANCH=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" 
 alias gclean='git checkout master && git pull && git remote prune origin && git branch --merged master | egrep  -v "(master|staging|production)$" | xargs git branch -d && git gc'
 alias gl='git pull -v'
 alias gp='git push'
-alias gpushmaster='git push origin master:production && git push origin master:staging'
+alias gpushmaster='git push origin master:production && git push origin master:staging && git fetch vsts && git fetch bb'
 alias glp='git pull && git push'
 alias gstl='git stash && git pull && git stash pop'
 alias gstp='git stash && git pull && git push && git stash pop'
