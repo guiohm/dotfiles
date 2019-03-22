@@ -23,6 +23,7 @@ alias ...='cd ../..'
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+alias cdappros="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/Appros"
 alias h='history'
 alias r='fc -s'
 alias svnup='svn up --ignore-externals'
@@ -65,7 +66,7 @@ alias tailw='tail -f ~/work4us/log/w4u_dev.log'
 alias japi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add_j4m.xml' http://api-dev.j4m.gbordiau.lab3.work4labs.com/v2/pages/159068240784310/jobs"
 alias wapi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add.xml' http://api-dev.work4us.gbordiau.lab3.work4labs.com/v2/pages/159068240784310/jobs"
 
-alias code='/c/Program\ Files/Microsoft\ VS\ Code\ Insiders/bin/code-insiders'
+alias code='/mnt/c/Program\ Files/Microsoft\ VS\ Code\ Insiders/bin/code-insiders'
 
 # Specific dotfiles git repo alias
 alias gitdotfiles='git --git-dir="$HOME/.dotfiles-repo/" --work-tree="$HOME"'
