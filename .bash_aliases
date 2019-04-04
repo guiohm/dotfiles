@@ -44,7 +44,7 @@ alias gitpushmaster2staging='git co staging && git pull && git co master && git 
 alias gmergeprod='git co production && git pull && git push && git co staging && git pull && git merge production && git push && git co master && git pull && git merge staging && git push'
 alias gmergemaster='CURR_BRANCH=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3-) && git co master && git pull && git co $CURR_BRANCH && git merge master && git push'
 alias gclean='git checkout master && git pull && git remote prune origin && git branch --merged master | egrep  -v "(master|staging|production)$" | xargs git branch -d && git gc'
-alias gl='git pull -v'
+alias gl='git pull'
 alias gp='git push'
 alias gpushmaster='git push origin master:production && git push origin master:staging && git fetch vsts && git fetch bb'
 alias glp='git pull && git push'

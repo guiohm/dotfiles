@@ -70,3 +70,5 @@
 	trustExitCode = true
 [rebase]
 	autosquash = true
+[submodule]
+	recurse = true
