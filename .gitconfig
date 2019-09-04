@@ -75,4 +75,4 @@
 [submodule]
 	recurse = true
 [diff]
-	submodule = true
+	submodule = log
