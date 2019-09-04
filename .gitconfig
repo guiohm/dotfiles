@@ -70,5 +70,9 @@
 	trustExitCode = true
 [rebase]
 	autosquash = true
+[status]
+	submodulesummary = true
 [submodule]
 	recurse = true
+[diff]
+	submodule = log
