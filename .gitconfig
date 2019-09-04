@@ -71,8 +71,8 @@
 [rebase]
 	autosquash = true
 [status]
-	submodulesummary = 1
+	submodulesummary = true
 [submodule]
 	recurse = true
 [diff]
-	submodule = 1
+	submodule = true
