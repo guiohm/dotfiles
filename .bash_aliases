@@ -64,6 +64,7 @@ alias gitpushmaster2staging='git co staging && git pull && git co master && git 
 alias gmergeprod='git co production && git pull && git push && git co staging && git pull && git merge production && git push && git co master && git pull && git merge staging && git push'
 alias gmergemaster='CURR_BRANCH=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3-) && git co master && git pull && git co $CURR_BRANCH && git merge master && git push'
 alias gclean='git checkout master && git pull && git remote prune origin && git branch --merged master | egrep  -v "(master|staging|production)$" | xargs git branch -d && git gc'
+alias gf='git fetch bb && git fetch vsts'
 alias gl='git pull'
 alias gp='git push'
 alias gpushmaster='git push origin master:production && git push origin master:staging && git fetch vsts && git fetch bb'
@@ -87,6 +88,8 @@ alias japi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add_j4m.xm
 alias wapi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add.xml' http://api-dev.work4us.gbordiau.lab3.work4labs.com/v2/pages/159068240784310/jobs"
 
 alias code='/mnt/c/Program\ Files/Microsoft\ VS\ Code\ Insiders/bin/code-insiders'
+
+alias swagg='java.exe -cp /mnt/c/Users/Guilhaume.Bordiau/Repos/swagger -jar swagger-codegen-cli.jar'
 
 # Specific dotfiles git repo alias
 alias gitdotfiles='git --git-dir="$HOME/.dotfiles-repo/" --work-tree="$HOME"'
