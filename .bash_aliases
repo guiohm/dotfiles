@@ -26,10 +26,10 @@
 
 # PATH="$PATH"
 
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-  eval `ssh-agent -s`
-  ssh-add
-fi
+# WSL ssh keys handling
+# requires keychain : sudo apt-get install keychain
+/usr/bin/keychain --nogui $HOME/.ssh/id_rsa
+source $HOME/.keychain/$HOSTNAME-sh
 
 #-------------------
 # Personnal Aliases
@@ -44,6 +44,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias cdappros="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/Appros"
+alias cdbig="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo"
 alias h='history'
 alias r='fc -s'
 alias svnup='svn up --ignore-externals'
@@ -549,7 +550,7 @@ function get_git_svn_info () {
   # PS1="\u@\h \w ${BRANCH}${PROMPT_SYMBOL} "
 }
 
-parse_git_branch() {      
+parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
@@ -629,3 +630,4 @@ function goto {
     esac
 }
 
+source /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo/gitCommands.sh
