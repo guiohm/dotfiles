@@ -14,4 +14,10 @@ config checkout
 config config status.showUntrackedFiles no
 config submodule init
 config submodule update
+
+echo "Installing curl";
+sudo apt install curl
+echo "Installing Ohmyzsh";
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 source $home/.bashrc
