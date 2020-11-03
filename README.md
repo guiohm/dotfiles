@@ -10,6 +10,17 @@ curl -Lks https://raw.githubusercontent.com/guiohm/myWork_WSL_DotFiles/master/.d
 
 See `.dotfiles-install/install.sh`
 
+### Install ZSH
+```
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+### Install Keychain (ssh-agent wrapper)
+```
+sudo apt install keychain
+```
+
 ### VIM: Update plugins
 
 Launch `vim` and type `:PlugInstall`
