@@ -31,6 +31,9 @@
 /usr/bin/keychain --nogui $HOME/.ssh/id_rsa
 source $HOME/.keychain/$HOSTNAME-sh
 
+# Keyrate.exe must be in windows PATH
+keyrate.exe 180 12
+
 #-------------------
 # Personnal Aliases
 #-------------------
