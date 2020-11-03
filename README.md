@@ -10,6 +10,15 @@ curl -Lks https://raw.githubusercontent.com/guiohm/myWork_WSL_DotFiles/master/.d
 
 See `.dotfiles-install/install.sh`
 
+### Or Manually
+
+```
+alias gitdotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
+git clone --bare git@github.com:guiohm/myWork_WSL_DotFiles.git $HOME/.dotfiles-repo
+gitdotfiles checkout
+gitdotfiles config --local status.showUntrackedFiles no
+```
+
 ### Install ZSH
 ```
 sudo apt install zsh
@@ -35,15 +44,6 @@ fnm install --lts
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && sudo apt install --no-install-recommends yarn
-```
-
-### Or Manually
-
-```
-alias gitdotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
-git clone --bare git@github.com:guiohm/myWork_WSL_DotFiles.git $HOME/.dotfiles-repo
-gitdotfiles checkout
-gitdotfiles config --local status.showUntrackedFiles no
 ```
 
 ## Install Fish on WSL Ubuntu 14.04
