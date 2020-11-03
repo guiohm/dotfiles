@@ -25,6 +25,18 @@ sudo apt install keychain
 
 Launch `vim` and type `:PlugInstall`
 
+### Install Yarn (using fnm to install node)
+```
+sudo apt install unzip
+curl -fsSL https://fnm.vercel.app/install | bash
+source ~/.bashrc
+# TODO handle completions : fnm completions --shell bash
+fnm install --lts
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install --no-install-recommends yarn
+```
+
 ### Or Manually
 
 ```
