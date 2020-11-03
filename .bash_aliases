@@ -43,7 +43,7 @@ alias ...='cd ../..'
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
-alias cdappros="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/Appros"
+alias cdappros="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo/Appro/src/ASP"
 alias cdbig="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo"
 alias h='history'
 alias r='fc -s'
@@ -630,4 +630,5 @@ function goto {
     esac
 }
 
-source /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo/gitCommands.sh
+source /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo/Tools/*.sh
+source <(cat '/mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo'/Tools/*.sh)
