@@ -14,8 +14,4 @@ config checkout
 config config status.showUntrackedFiles no
 config submodule init
 config submodule update
-
-echo "Installing Ohmyzsh";
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 source $HOME/.bashrc
