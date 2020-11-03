@@ -18,4 +18,4 @@ config submodule update
 echo "Installing Ohmyzsh";
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-source $home/.bashrc
+source $HOME/.bashrc
