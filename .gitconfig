@@ -19,6 +19,7 @@
         untracked = white
 [gc]
         packrefs = true
+	auto = 256
 [alias]
         ci = commit
         co = checkout
@@ -43,6 +44,7 @@
 	symlinks = true
         legacyheaders = false
         pager = less -+e
+	preloadindex = true
 [grep]
 	lineNumber = true
 [branch]
@@ -71,7 +73,7 @@
 [rebase]
 	autosquash = true
 [status]
-	submodulesummary = true
+#	submodulesummary = true
 [submodule]
 	recurse = true
 [diff]
