@@ -23,6 +23,15 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 # custom plugin git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# custom plugin: k: https://github.com/supercrabtree/k
+
+# fzf 
+export FZF_BASE=/usr/share/gocode/src/github.com/junegunn/fzf
+export FZF_DEFAULT_OPTS='--height 66% --layout=reverse --border'
+export FZF_COMPLETION_TRIGGER='::'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
+DISABLE_FZF_AUTO_COMPLETION="false"
+DISABLE_FZF_KEY_BINDINGS="false"
 
 # custom plugin https://github.com/zsh-users/zsh-autosuggestions
 # match_prev_cmd need to have HIST_EXPIRE_DUPS_FIRST, HIST_IGNORE_DUPS, HIST_IGNORE_ALL_DUPS set off 
@@ -100,9 +109,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(colorize compleat extract git pass ssh-agent themes zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(colorize compleat extract git pass ssh-agent themes zsh-autosuggestions zsh-syntax-highlighting k fzf)
 
 source $ZSH/oh-my-zsh.sh
 

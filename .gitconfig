@@ -45,6 +45,7 @@
         legacyheaders = false
         pager = less -+e
 	preloadindex = true
+	untrackedCache = true
 [grep]
 	lineNumber = true
 [branch]
@@ -78,3 +79,7 @@
 	recurse = true
 [diff]
 	submodule = log
+[feature]
+	manyFiles = true
+[merge]
+	renameLimit = 8888
