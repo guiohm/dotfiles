@@ -3,7 +3,7 @@
 
 # fnm (Fast Node Manager)
 export PATH=$HOME/.fnm:$PATH
-eval "`fnm env`"
+eval "$(fnm env --use-on-cd)"
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
@@ -31,7 +31,7 @@ export FZF_DEFAULT_OPTS='--height 66% --layout=reverse --border'
 export FZF_COMPLETION_TRIGGER='::'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 DISABLE_FZF_AUTO_COMPLETION="false"
-DISABLE_FZF_KEY_BINDINGS="false"
+DISABLE_FZF_KEY_BINDINGS="false" # Ctrl-T Ctrl-R Alt-C
 
 # custom plugin https://github.com/zsh-users/zsh-autosuggestions
 # match_prev_cmd need to have HIST_EXPIRE_DUPS_FIRST, HIST_IGNORE_DUPS, HIST_IGNORE_ALL_DUPS set off 
@@ -51,7 +51,7 @@ export ZSH="/home/guiohm/.oh-my-zsh"
 #ZSH_THEME="amuse"
 #ZSH_THEME="avit"
 #ZSH_THEME="sorin"
-ZSH_THEME="norm"
+ZSH_THEME="fletcherm" # set by `omz`
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -109,7 +109,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(colorize compleat extract git pass ssh-agent themes zsh-autosuggestions zsh-syntax-highlighting k fzf)
+plugins=(colorize compleat extract git pass ssh-agent themes zsh-autosuggestions zsh-syntax-highlighting k fzf aliases ripgrep)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -145,3 +145,6 @@ PROJECT_PATHS=('/mnt/c/Users/Guilhaume.Bordiau/Repos/')
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.aliases
+
+# https://github.com/starship/starship
+eval "$(starship init zsh)"
