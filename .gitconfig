@@ -43,9 +43,21 @@
 	# see details here: https://github.com/git-for-windows/git/wiki/Symbolic-Links
 	symlinks = true
         legacyheaders = false
-        pager = less -+e
+	# https://github.com/dandavison/delta
+	pager = delta
+	# pager = less -+e
 	preloadindex = true
 	untrackedCache = true
+[delta]
+	features1 = side-by-side line-numbers decorations
+	features = line-numbers decorations
+	whitespace-error-style = 22 reverse
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+[interactive]
+        diffFilter = delta --color-only
 [grep]
 	lineNumber = true
 [branch]
@@ -63,9 +75,6 @@
         default = tracking
 [winUpdater]
 	recentlySeenVersion = 2.21.0.windows.1
-[github]
-	user = guiohm
-	token = 7691c5559f888d79266ff7a2e199fa2a
 [difftool "sourcetree"]
 	cmd = '' \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
@@ -83,3 +92,5 @@
 	manyFiles = true
 [merge]
 	renameLimit = 8888
+[checkout]
+	defaultRemote = origin
