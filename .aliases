@@ -1,7 +1,6 @@
 export PATH="$(yarn global bin):$PATH:$HOME/go/bin:/usr/local/go/bin:$HOME/.local/bin"
 
-# Keyrate.exe must be in windows PATH
-keyrate.exe 200 15
+/mnt/c/wsl/keyrate.exe 200 15
 
 #-------------------
 # Personnal Aliases

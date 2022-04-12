@@ -26,7 +26,7 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # custom plugin: k: https://github.com/supercrabtree/k
 
 # fzf 
-export FZF_BASE=/usr/share/gocode/src/github.com/junegunn/fzf
+export FZF_BASE="$HOME/.oh-my-zsh/custom/plugins/fzf-zsh-plugin"
 export FZF_DEFAULT_OPTS='--height 66% --layout=reverse --border'
 export FZF_COMPLETION_TRIGGER='::'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
@@ -109,7 +109,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(colorize compleat extract git pass ssh-agent themes zsh-autosuggestions zsh-syntax-highlighting k fzf aliases ripgrep)
+plugins=(colorize compleat extract git pass ssh-agent themes zsh-autosuggestions zsh-syntax-highlighting k aliases ripgrep fzf-zsh-plugin)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -148,3 +148,4 @@ source ~/.aliases
 
 # https://github.com/starship/starship
 eval "$(starship init zsh)"
+
