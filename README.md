@@ -78,6 +78,12 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/supercrabtree/k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/k
 ```
 
+### Install keyrate (windows only) (https://github.com/EricTetz/keyrate)
+
+```
+wget https://github.com/EricTetz/keyrate/releases/download/v1.0/keyrate.exe -o /mnt/c/wsl/keyrate.exe
+```
+
 ## [Not used] Install Fish on WSL Ubuntu 14.04
 
 apt-get only has the 2.0 version of Fish. But Poweline needs 2.1+. So here are the steps to install Fish 2.6
