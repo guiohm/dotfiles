@@ -149,3 +149,5 @@ source ~/.aliases
 # https://github.com/starship/starship
 eval "$(starship init zsh)"
 
+# gpg signing
+export GPG_TT=Y$(tty)

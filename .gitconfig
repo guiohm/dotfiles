@@ -1,6 +1,7 @@
 [user]
         name = Guilhaume Bordiau
         email = guilhaume.bordiau@leul.fr
+        signingkey = 49333D768431FBA5
 [color]
         diff   = auto
         branch = auto
@@ -93,3 +94,5 @@
 	renameLimit = 8888
 [checkout]
 	defaultRemote = origin
+[commit]
+	gpgsign = true
