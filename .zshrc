@@ -109,7 +109,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(colorize compleat extract git pass ssh-agent themes zsh-autosuggestions zsh-syntax-highlighting k aliases ripgrep fzf-zsh-plugin)
+plugins=(colorize compleat extract git pass gpg-agent ssh-agent themes zsh-autosuggestions zsh-syntax-highlighting k aliases ripgrep fzf-zsh-plugin)
 
 source $ZSH/oh-my-zsh.sh
 
