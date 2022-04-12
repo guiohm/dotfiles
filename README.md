@@ -38,15 +38,45 @@ Launch `vim` and type `:PlugInstall`
 ```
 sudo apt install unzip
 curl -fsSL https://fnm.vercel.app/install | bash
-source ~/.bashrc
-# TODO handle completions : fnm completions --shell bash
+source ~/.zshrc
+# TODO handle completions : fnm completions --shell zsh
+# install node.js
 fnm install --lts
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && sudo apt install --no-install-recommends yarn
+npm install -g yarn
 ```
 
-## Install Fish on WSL Ubuntu 14.04
+### Install Starship (https://github.com/starship/starship)
+
+```
+curl -sS https://starship.rs/install.sh | sh
+```
+
+
+### Install zsh autosuggestions plugin (https://github.com/zsh-users/zsh-autosuggestions)
+
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+### Install zsh fzf plugin (https://github.com/unixorn/fzf-zsh-plugin#oh-my-zsh)
+
+```
+git clone https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
+```
+
+### Install zsh syntax highlighting plugin (https://github.com/zsh-users/zsh-syntax-highlighting)
+
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+### Install zsh k plugin: dir list with git features (https://github.com/supercrabtree/k)
+
+```
+git clone https://github.com/supercrabtree/k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/k
+```
+
+## [Not used] Install Fish on WSL Ubuntu 14.04
 
 apt-get only has the 2.0 version of Fish. But Poweline needs 2.1+. So here are the steps to install Fish 2.6
 ```
@@ -56,7 +86,7 @@ wget https://launchpad.net/~fish-shell/+archive/ubuntu/release-2/+files/fish_2.6
 sudo dpkg -i fish-common_2.6.0-1~trusty_all.deb fish_2.6.0-1~trusty_amd64.deb
 ```
 
-### Install powerline
+### [Not used] Install powerline
 
 From memory, the steps should roughly be something like...
 - Install pip : `sudo apt-get install python3-pip`
