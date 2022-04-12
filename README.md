@@ -1,6 +1,6 @@
 ## Just my work dotfiles. Used on WSL Ubuntu
 
-New conf from scratch. Trying Fish shell.
+Currently oriented toward zsh.
 
 ### Automated Checkout Script
 
@@ -25,11 +25,6 @@ sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-### Install Keychain (ssh-agent wrapper)
-```
-sudo apt install keychain
-```
-
 ### VIM: Update plugins
 
 Launch `vim` and type `:PlugInstall`
@@ -45,12 +40,19 @@ fnm install --lts
 npm install -g yarn
 ```
 
+### Install bat (A cat clone with syntax highlighting and Git integration) (https://github.com/sharkdp/bat)
+
+```
+wget https://github.com/sharkdp/bat/releases/download/v0.20.0/bat_0.20.0_amd64.deb
+sudo dpkg -i bat*.deb
+rm bat*.deb
+```
+
 ### Install Starship (https://github.com/starship/starship)
 
 ```
 curl -sS https://starship.rs/install.sh | sh
 ```
-
 
 ### Install zsh autosuggestions plugin (https://github.com/zsh-users/zsh-autosuggestions)
 
