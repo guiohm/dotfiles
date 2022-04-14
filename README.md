@@ -96,6 +96,9 @@ https://github.com/dandavison/delta
 npm install -g tldr
 ```
 
+### Windows dark cursor => https://www.deviantart.com/jepricreations/art/Windows-11-Cursors-Concept-v2-886489356
+
+
 ## Install GnuPg
 
 ```
