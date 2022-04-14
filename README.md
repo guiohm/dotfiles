@@ -84,6 +84,12 @@ git clone https://github.com/supercrabtree/k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/
 wget https://github.com/EricTetz/keyrate/releases/download/v1.0/keyrate.exe -o /mnt/c/wsl/keyrate.exe
 ```
 
+### Install Git-delta (diff syntax highlighting) (https://github.com/dandavison/delta)
+
+```
+https://github.com/dandavison/delta
+```
+
 ### Install tldr pages (Simplified and community-driven man pages) (https://github.com/tldr-pages/tldr)
 
 ```
