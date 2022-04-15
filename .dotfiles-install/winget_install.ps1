@@ -16,7 +16,7 @@ winget install -e --id Canonical.Ubuntu
 winget install -e --id eloston.ungoogled-chromium
 winget install -e --id Git.Git
 winget install -e --id Microsoft.PowerShell
-
+winget install -e --id OpenJS.NodeJS.LTS
 
 winget install -e --id Microsoft.VC++2015-2022Redist-x64
 winget install -e --id Microsoft.dotnet
