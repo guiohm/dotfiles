@@ -96,6 +96,11 @@ https://github.com/dandavison/delta
 npm install -g tldr
 ```
 
+### Miscellaneous
+```
+sudo apt install python3-pip
+```
+
 ### Windows dark cursor => https://www.deviantart.com/jepricreations/art/Windows-11-Cursors-Concept-v2-886489356
 
 
