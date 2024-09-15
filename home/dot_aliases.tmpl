@@ -1,12 +1,42 @@
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+# WSL-specific (work)
+
 export PATH="$(yarn global bin):$PATH:$HOME/go/bin:/usr/local/go/bin:$HOME/.local/bin"
-
 /mnt/c/wsl/keyrate.exe 200 15
+for f in /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo/Tools/*.sh; do source $f; done
 
-#-------------------
-# Personnal Aliases
-#-------------------
+alias cdappros="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo/Appro/src/Appro"
+alias cdbig="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo"
+alias cdpdt="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo/PostesDeTravail/src"
+
+alias celdev='celeryd -E -B --config=celeryconfig.celeryconfig --loglevel=DEBUG'
+alias w4ubuild='~/work4us/symfony doctrine:build --all --application=facebook --and-load && ~/work4us/symfony work4us:update-db && ~/work4us/symfony work4us:mongodb-setup --drop-database=true &&  ~/work4us/symfony work4us:sync-mongo'
+alias j4mebuild='~/work4schools/symfony doctrine:build --application=facebook --all --and-load && ~/work4schools/symfony jobs4me:update-db'
+alias wprodsql='mysql --defaults-file=/home/web/.my.lab4.cnf --prompt="[Work4Us-prod] > " -vvv --database="work4us"'
+alias jprodsql='mysql --defaults-file=/home/web/.my.lab6.cnf --prompt="[Jobs4Me-prod] > " -vvv --database="work4schools"'
+alias devsql='mysql --prompt="(devsql) [\d]> " -vvv'
+alias jdevsql='mysql --prompt="[Jobs4Me-dev] > " -vvv --database="gbordiau_work4schools"'
+alias wdevsql='mysql --prompt="[Work4Us-dev] > " -vvv --database="gbordiau_work4us"'
+alias mongolab='mongo dbh13.mongolab.com:27137/gbordiau_jobs4me2 -u gbordiau -p sewudyeyoine'
+alias mongosyncdevpage='./symfony mongo:sync --env=dev --page_id=159068240784310 --sync_date=1970-01-01 && ./symfony mongo:update-cache --env=dev --page_id=159068240784310 --force=1'
+alias tailj='tail -f ~/jobs4me/log/j4m_dev.log'
+alias tailw='tail -f ~/work4us/log/w4u_dev.log'
+alias japi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add_j4m.xml' http://api-dev.j4m.gbordiau.lab3.work4labs.com/v2/pages/159068240784310/jobs"
+alias wapi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add.xml' http://api-dev.work4us.gbordiau.lab3.work4labs.com/v2/pages/159068240784310/jobs"
+alias swagg='java.exe -cp /mnt/c/Users/Guilhaume.Bordiau/Repos/swagger -jar swagger-codegen-cli.jar'
+
+{{   else }}
+
+#export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin:$HOME/.local/bin"
+
+{{   end }}
+{{ end }}
+
+alias dot='chezmoi'
 alias du='du -kh'
 alias durec="du -hs ./* | grep '[GM]'"
+#alias du="dust"
 alias df='df -kTh'
 alias mkdir='mkdir -p'
 alias ..='cd ..'
@@ -14,14 +44,50 @@ alias ...='cd ../..'
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
-alias cdappros="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo/Appro/src/Appro"
-alias cdbig="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo"
-alias cdpdt="cd /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo/PostesDeTravail/src"
+
+# Uses atool https://www.nongnu.org/atool/
+alias extract="aunpack"
+
+# Specific dotfiles git repo alias
+alias gitdotfiles='git --git-dir="$HOME/.dotfiles-repo/" --work-tree="$HOME"'
+
+alias gource='gource --seconds-per-day 1 --auto-skip-seconds 1 --file-idle-time 0 --max-file-lag 0.5 --key'
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 alias h='history'
+alias ip='ip -color=auto'
+
+# plugin zsh
+alias k="k -Ah --no-vcs"
+
+# localtunnel https://github.com/localtunnel/localtunnel
+alias localtunnel='\lt'
+alias meteo='curl https://v2d.wttr.in/thouars'
+alias meteo-blanzy="curl 'https://v2d.wttr.in/46.7080,4.3941'"
+alias meteo-help='curl https://wttr.in/:help'
+alias msh="mosh --server='\''LC_CTYPE=en_US.UTF-8 mosh-server'\'"
+
+alias pacman="pacman --color=auto -v"
+alias pacman-list-unused='pacman -Qqtd'
+alias pacman-list-installed-explicitly='pacman -Qe'
+alias yay="yay --color=auto -v"
+
 alias r='fc -s'
+
+# ripgrep default --smart-case
+alias rg="rg -S" # ripgrep default --smart-case
+
+alias journalShow="sudo journalctl --no-hostname -xen10000"
+alias journalFollow="sudo journalctl --no-hostname -xfn10000"
+
+# refresh sudo timeout
+alias sudo='sudo -v;sudo'
+
 alias svnup='svn up --ignore-externals'
 alias svnst='svn st --ignore-externals'
-alias celdev='celeryd -E -B --config=celeryconfig.celeryconfig --loglevel=DEBUG'
+
+#-------------------
+# Git
+#-------------------
 alias g='git'
 alias gba='git branch -r && git branch'
 alias gt='git status'
@@ -45,43 +111,13 @@ alias glp='git pull && git push'
 alias gstl='git stash && git pull && git stash pop'
 alias gstp='git stash && git pull && git push && git stash pop'
 alias gsr='make reset_submodules'
-alias msh="mosh --server='\''LC_CTYPE=en_US.UTF-8 mosh-server'\'"
-alias w4ubuild='~/work4us/symfony doctrine:build --all --application=facebook --and-load && ~/work4us/symfony work4us:update-db && ~/work4us/symfony work4us:mongodb-setup --drop-database=true &&  ~/work4us/symfony work4us:sync-mongo'
-alias j4mebuild='~/work4schools/symfony doctrine:build --application=facebook --all --and-load && ~/work4schools/symfony jobs4me:update-db'
-alias wprodsql='mysql --defaults-file=/home/web/.my.lab4.cnf --prompt="[Work4Us-prod] > " -vvv --database="work4us"'
-alias jprodsql='mysql --defaults-file=/home/web/.my.lab6.cnf --prompt="[Jobs4Me-prod] > " -vvv --database="work4schools"'
-alias devsql='mysql --prompt="(devsql) [\d]> " -vvv'
-alias jdevsql='mysql --prompt="[Jobs4Me-dev] > " -vvv --database="gbordiau_work4schools"'
-alias wdevsql='mysql --prompt="[Work4Us-dev] > " -vvv --database="gbordiau_work4us"'
-alias mongolab='mongo dbh13.mongolab.com:27137/gbordiau_jobs4me2 -u gbordiau -p sewudyeyoine'
-alias mongosyncdevpage='./symfony mongo:sync --env=dev --page_id=159068240784310 --sync_date=1970-01-01 && ./symfony mongo:update-cache --env=dev --page_id=159068240784310 --force=1'
-alias tailj='tail -f ~/jobs4me/log/j4m_dev.log'
-alias tailw='tail -f ~/work4us/log/w4u_dev.log'
-alias japi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add_j4m.xml' http://api-dev.j4m.gbordiau.lab3.work4labs.com/v2/pages/159068240784310/jobs"
-alias wapi="curl -v --user 159068240784310:ak42 --data '@doc/test/job_add.xml' http://api-dev.work4us.gbordiau.lab3.work4labs.com/v2/pages/159068240784310/jobs"
-
-alias code='code-insiders'
-
-# localtunnel https://github.com/localtunnel/localtunnel
-alias localtunnel='\lt'
-alias meteo='curl https://wttr.in/thouars'
-
-alias swagg='java.exe -cp /mnt/c/Users/Guilhaume.Bordiau/Repos/swagger -jar swagger-codegen-cli.jar'
-
-# Specific dotfiles git repo alias
-alias gitdotfiles='git --git-dir="$HOME/.dotfiles-repo/" --work-tree="$HOME"'
-
-# plugin zsh
-alias k="k -Ah --no-vcs"
-
-# ripgrep default --smart-case
-alias rg="rg -S"
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls)
 #-------------------------------------------------------------
-alias ll="ls -Al --group-directories-first"
-alias ls='ls -hF --color'  # add colors for filetype recognition
+alias ll="ls -Alh --group-directories-first"
+#alias ls='ls -hF --color=auto'  # add colors for filetype recognition
+alias ls='lsd'
 alias la='ls -Al'          # show hidden files
 alias lx='ls -lXB'         # sort by extension
 alias lk='ls -lSr'         # sort by size, biggest last
@@ -90,8 +126,9 @@ alias lu='ls -ltur'        # sort by and show access time, most recent last
 alias lt='ls -ltr'         # sort by date, most recent last
 alias lm='ls -al |more'    # pipe through 'more'
 alias lr='ls -lR'          # recursive ls
-alias tree='tree -Csu'     # nice alternative to 'recursive ls'
-alias lsd='ls -ld *(/)'                 # only show directories
+#alias tree='tree -Csu'     # nice alternative to 'recursive ls'
+alias tree='ll --tree --depth'
+#alias lsd='ls -ld *(/)'                 # only show directories
 alias lad='ls -ld .*(/)'                # only show dot-directories
 alias lsa='ls -a .*(.)'                 # only show dot-files
 alias lsbig='ls -lSh *(.) | head'       # display the biggest files
@@ -307,38 +344,38 @@ function aldo {
     echo $'\a';
 }
 
-function extract()
-{
-     if [ -f $1 ] ; then
-         case $1 in
-             *.tar.bz2)   tar xvjf $1     ;;
-             *.tar.gz)    tar xvzf $1     ;;
-             *.bz2)       bunzip2 $1      ;;
-             *.rar)       unrar x $1      ;;
-             *.gz)        gunzip $1       ;;
-             *.tar)       tar xvf $1      ;;
-             *.tbz2)      tar xvjf $1     ;;
-             *.tgz)       tar xvzf $1     ;;
-             *.zip)       unzip $1        ;;
-             *.Z)         uncompress $1   ;;
-             *.7z)        7z x $1         ;;
-             *)           echo >&2 "extract automatise les commandes suivantes:
-        .tar.bz2    >   tar xvjf
-        .tar.gz     >   tar xvzf
-        .bz2        >   bunzip2
-        .rar        >   unrar x
-        .gz         >   gunzip
-        .tar        >   tar xvf
-        .tbz2       >   tar xvjf
-        .tgz        >   tar xvzf
-        .zip        >   unzip
-        .Z          >   uncompress
-        .7z         >   7z x" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
-}
+#function extract()
+#{
+#     if [ -f $1 ] ; then
+#         case $1 in
+#             *.tar.bz2)   tar xvjf $1     ;;
+#             *.tar.gz)    tar xvzf $1     ;;
+#             *.bz2)       bunzip2 $1      ;;
+#             *.rar)       unrar x $1      ;;
+#             *.gz)        gunzip $1       ;;
+#             *.tar)       tar xvf $1      ;;
+#             *.tbz2)      tar xvjf $1     ;;
+#             *.tgz)       tar xvzf $1     ;;
+#             *.zip)       unzip $1        ;;
+#             *.Z)         uncompress $1   ;;
+#             *.7z)        7z x $1         ;;
+#             *)           echo >&2 "extract automatise les commandes suivantes:
+#        .tar.bz2    >   tar xvjf
+#        .tar.gz     >   tar xvzf
+#        .bz2        >   bunzip2
+#        .rar        >   unrar x
+#        .gz         >   gunzip
+#        .tar        >   tar xvf
+#        .tbz2       >   tar xvjf
+#        .tgz        >   tar xvzf
+#        .zip        >   unzip
+#        .Z          >   uncompress
+#        .7z         >   7z x" ;;
+#         esac
+#     else
+#         echo "'$1' is not a valid file"
+#     fi
+#}
 
 #function disktemp() {
 #  for i (/dev/[hs]d?) {
@@ -419,5 +456,3 @@ function goto {
             echo  $Usage  ;;
     esac
 }
-
-for f in /mnt/c/Users/Guilhaume.Bordiau/Repos/TheBigRepo/Tools/*.sh; do source $f; done
