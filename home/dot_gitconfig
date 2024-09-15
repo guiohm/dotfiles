@@ -1,7 +1,7 @@
 [user]
-        name = Guilhaume Bordiau
-        email = guilhaume.bordiau@leul.fr
-        signingkey = 49333D768431FBA5
+        name = guilhaume bordiau
+        email = github@guilhaume.fr
+	signingkey = 9BAB58C1C9D887F06E28C4B98B4F8AD7200CFE99
 [color]
         diff   = auto
         branch = auto
@@ -50,17 +50,26 @@
 	preloadindex = true
 	untrackedCache = true
 [delta]
-	features1 = side-by-side line-numbers decorations
-	features = line-numbers decorations
+	features = line-numbers decorations # also possible: side-by-side
+	navigate = true  # use n and N to move between diff sections
 	whitespace-error-style = 22 reverse
 [delta "decorations"]
-	commit-decoration-style = bold yellow box ul
-	file-style = bold yellow ul
-	file-decoration-style = none
+#	commit-decoration-style = bold yellow box ul
+#	file-style = bold yellow ul
+#	file-decoration-style = none
+	commit-decoration-style = blue ol
+	commit-style = raw
+	file-style = omit
+	hunk-header-decoration-style = blue box
+	hunk-header-file-style = orange
+	hunk-header-line-number-style = "#067a00"
+	hunk-header-style = file line-number syntax	
 [interactive]
-        diffFilter = delta --color-only
+        diffFilter = delta --color-only --features=interactive
 [grep]
 	lineNumber = true
+[gpg]
+#	program = c:\\Program Files\\Git\\usr\\bin\\gpg.exe 
 [branch]
         autosetuprebase = always
 [repack]
@@ -69,17 +78,10 @@
         prompt = false
 [github]
 	user = guiohm
-[grep]
-	lineNumber = true
 [push]
         default = tracking
 [winUpdater]
 	recentlySeenVersion = 2.21.0.windows.1
-[difftool "sourcetree"]
-	cmd = '' \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-	cmd = "'' "
-	trustExitCode = true
 [rebase]
 	autosquash = true
 [status]
@@ -87,12 +89,16 @@
 [submodule]
 	recurse = true
 [diff]
+	colorMoved = default
 	submodule = log
 [feature]
 	manyFiles = true
 [merge]
+	conflictstyle = diff3
 	renameLimit = 8888
 [checkout]
 	defaultRemote = origin
 [commit]
-	gpgsign = true
+	gpgSign = true
+[url "https://"]
+	insteadOf = git://
