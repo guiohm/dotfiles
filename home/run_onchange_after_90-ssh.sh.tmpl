@@ -1,0 +1,13 @@
+{{ if not .codespaces -}}
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+FILE="$HOME/.ssh/id_rsa"
+echo -n {{ keepassxcAttachment "SSH" "id_rsa" | quote }} > $FILE
+chmod 600 "$FILE"
+
+FILE="$HOME/.ssh/config"
+echo -n {{ keepassxcAttribute "SSH" "config" | quote }} > $FILE
+
+{{- end -}}
+{{- end -}}

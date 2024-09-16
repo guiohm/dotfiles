@@ -1,61 +1,61 @@
 [user]
-        name = {{ .name | quote }}
-        email = {{ .email | quote }} 
+	name = {{ .name | quote }}
+	email = {{ .email | quote }} 
 	signingkey = {{ .github_pub_key | quote }}
 [color]
-        diff   = auto
-        branch = auto
-        status = auto
-        pager  = true
-        ui     = auto
+	diff   = auto
+	branch = auto
+	status = auto
+	pager  = true
+	ui     = auto
 [color "diff"]
-        meta = bold yellow
-        frag = bold cyan
-        old  = bold red
-        new  = bold green
+	meta = bold yellow
+	frag = bold cyan
+	old  = bold red
+	new  = bold green
 [color "status"]
-        header    = bold yellow
-        added     = bold green
-        changed   = bold red
-        untracked = white
-[gc]
-        packrefs = true
-	auto = 256
+	header    = bold yellow
+	added     = bold green
+	changed   = bold red
+	untracked = white
 [alias]
-        ci = commit
-        co = checkout
-        st = status
-        changes = log -p --follow
-        find-deleted = rev-list -n 1 HEAD --
+	ci = commit
+	co = checkout
+	st = status
+	changes = log -p --follow
+	find-deleted = rev-list -n 1 HEAD --
 	# Remove deleted files
-        del = ls-files -z --deleted | xargs -0 git rm
-        patches = log -p
-        tree = "log --graph --decorate --abbrev-commit --date-order --pretty=format:'%Cgreen%h%Creset : %s%Cred%d%Creset (%Cblue%an%Creset, %Cblue%ar%Creset)'"
-        tree-all = "log --graph --decorate --abbrev-commit --date-order --pretty=format:'%Cgreen%h%Creset : %s%Cred%d%Creset (%Cblue%an%Creset, %Cblue%ar%Creset)' --all"
-        log1 = log --pretty=oneline --abbrev-commit --decorate
-        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+	del = ls-files -z --deleted | xargs -0 git rm
+	patches = log -p
+	tree = "log --graph --decorate --abbrev-commit --date-order --pretty=format:'%Cgreen%h%Creset : %s%Cred%d%Creset (%Cblue%an%Creset, %Cblue%ar%Creset)'"
+	tree-all = "log --graph --decorate --abbrev-commit --date-order --pretty=format:'%Cgreen%h%Creset : %s%Cred%d%Creset (%Cblue%an%Creset, %Cblue%ar%Creset)' --all"
+	log1 = log --pretty=oneline --abbrev-commit --decorate
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+[branch]
+	autosetuprebase = always
 [core]
-        autocrlf = false
+	autocrlf = false
 	editor = vim
-        excludesfile = ~/.git/info/exclude
+	excludesfile = ~/.git/info/exclude
 	# Special permissions (and Windows Vista or later) are required when cloning repositories with symbolic links,
 	# therefore support for symbolic links is disabled by default. Use git clone -c core.symlinks=true <URL> to enable it, 
 	# see details here: https://github.com/git-for-windows/git/wiki/Symbolic-Links
 	symlinks = true
-        legacyheaders = false
+	legacyheaders = false
 	# https://github.com/dandavison/delta
 	pager = delta
 	# pager = less -+e
 	preloadindex = true
 	untrackedCache = true
+[checkout]
+	defaultRemote = origin
+[commit]
+	gpgSign = true
 [delta]
 	features = line-numbers decorations # also possible: side-by-side
 	navigate = true  # use n and N to move between diff sections
 	whitespace-error-style = 22 reverse
 [delta "decorations"]
-#	commit-decoration-style = bold yellow box ul
-#	file-style = bold yellow ul
-#	file-decoration-style = none
 	commit-decoration-style = blue ol
 	commit-style = raw
 	file-style = omit
@@ -63,44 +63,39 @@
 	hunk-header-file-style = orange
 	hunk-header-line-number-style = "#067a00"
 	hunk-header-style = file line-number syntax	
-[interactive]
-        diffFilter = delta --color-only --features=interactive
+[diff]
+	colorMoved = default
+	submodule = log
+[difftool]
+	prompt = false
+[feature]
+	manyFiles = true
+[gc]
+	packrefs = true
+	auto = 256
 [grep]
 	lineNumber = true
 [gpg]
 {{ if eq .chezmoi.os "windows" -}}
 	program = c:\\Program Files\\Git\\usr\\bin\\gpg.exe 
 {{ end -}}
-[branch]
-        autosetuprebase = always
-[repack]
-        usedeltabaseoffset = true
-[difftool]
-        prompt = false
 [github]
 	user = guiohm
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+[merge]
+	conflictstyle = diff3
+	renameLimit = 8888
 [push]
-        default = tracking
-[winUpdater]
-	recentlySeenVersion = 2.21.0.windows.1
+	default = tracking
 [rebase]
 	autosquash = true
+[repack]
+	usedeltabaseoffset = true
 [status]
 #	submodulesummary = true
 [submodule]
 	recurse = true
-[diff]
-	colorMoved = default
-	submodule = log
-[feature]
-	manyFiles = true
-[merge]
-	conflictstyle = diff3
-	renameLimit = 8888
-[checkout]
-	defaultRemote = origin
-[commit]
-	gpgSign = true
 [url "https://"]
 	insteadOf = git://
 [url "ssh://git@github.com/"]

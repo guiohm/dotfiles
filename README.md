@@ -2,14 +2,19 @@
 
 Managed with [`chezmoi`](https://github.com/twpayne/chezmoi).
 
-Install them with:
+Install steps:
 
-    chezmoi init guiohm
+1. Download KeePassXC Database to ~/dirs/doc/keepass/keepass.kdbx
+2. Run `chezmoi init guiohm`, or if `chezmoi` is not installed:
 
-## Notes Notes Notes abouttt my work dotfiles. Used on WSL Ubuntu
+    ```bash
+    /bin/bash -c "$(curl https://raw.githubusercontent.com/guiohm/dotfiles/main/install.sh)"
+    ```
 
-Currently oriented toward zsh.
 
+========
+
+## Old Notes about my work dotfiles. Used on WSL Ubuntu
 
 ### Install ZSH
 ```

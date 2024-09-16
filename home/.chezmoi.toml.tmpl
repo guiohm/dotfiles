@@ -1,0 +1,55 @@
+{{- $codespaces:= env "CODESPACES" | not | not -}}
+
+{{- /* Checks if running interactively, which is not the case for GitHub Codespaces */ -}}
+{{- $interactive := stdinIsATTY -}}
+
+{{- /* Initializes the name variable with a default value */ -}}
+{{- $name := "guiohm" -}}
+{{- /* If name was previously set, reuses it */ -}}
+{{- if hasKey . "name" -}}
+{{-   $name = .name -}}
+{{- /* Otherwise, if running interactively, prompts for a name */ -}}
+{{- else if $interactive -}}
+{{-   $name = promptString "name" $name -}}
+{{- end -}}
+
+{{- /* Does the same for the email */ -}}
+{{- $email := "your@email.com" -}}
+{{- if hasKey . "email" -}}
+{{-   $email = .email -}}
+{{- else if $interactive -}}
+{{-   $email = promptString "email" $email -}}
+{{- end -}}
+
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+[data]
+    codespaces = {{ $codespaces }}
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+    github_pub_key = "9BAB58C1C9D887F06E28C4B98B4F8AD7200CFE99"
+    osid = {{ $osid | quote }}
+
+[diff]
+    command = "meld"
+    args = ["--diff", "{{"{{"}} .Destination {{"}}"}}", "{{"{{"}} .Target {{"}}"}}"]
+    pager = "delta"
+
+[merge]
+    command = "meld"
+    args = ["--diff", "{{"{{"}} .Destination {{"}}"}}", "{{"{{"}} .Source {{"}}"}}", "{{"{{"}} .Target {{"}}"}}"]
+
+[keepassxc]
+    database = "{{ .chezmoi.homeDir }}/Sync/Database.kdbx"
+
+[hooks.read-source-state.pre]
+    command = ".local/share/chezmoi/home/.install-password-manager.sh"
+
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
+{{ if $interactive -}}
+{{-   writeToStdout "💡 Tip: you can re-enter your name and email with `chezmoi init --data=false`.\n" -}}
+{{ end -}}
