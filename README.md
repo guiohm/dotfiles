@@ -1,18 +1,17 @@
-    # My dotfiles
+# My dotfiles
 
 Managed with [`chezmoi`](https://github.com/twpayne/chezmoi).
 
 Install steps:
 
-1. Download KeePassXC Database to ~/dirs/doc/keepass/keepass.kdbx
+1. Download KeePassXC Database to ~/Sync/Database.kdbx
 2. Run `chezmoi init guiohm`, or if `chezmoi` is not installed:
 
     ```bash
     /bin/bash -c "$(curl https://raw.githubusercontent.com/guiohm/dotfiles/main/install.sh)"
     ```
 
-
-========
+----
 
 ## Old Notes about my work dotfiles. Used on WSL Ubuntu
 
