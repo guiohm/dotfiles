@@ -1,7 +1,7 @@
 [user]
-        name = guilhaume bordiau
-        email = github@guilhaume.fr
-	signingkey = 9BAB58C1C9D887F06E28C4B98B4F8AD7200CFE99
+        name = {{ .name | quote }}
+        email = {{ .email | quote }} 
+	signingkey = {{ .github_pub_key | quote }}
 [color]
         diff   = auto
         branch = auto
@@ -36,7 +36,6 @@
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
 [core]
         autocrlf = false
-        #editor = /home/gbordiau/Dropbox/bin/rmate
 	editor = vim
         excludesfile = ~/.git/info/exclude
 	# Special permissions (and Windows Vista or later) are required when cloning repositories with symbolic links,
@@ -69,7 +68,9 @@
 [grep]
 	lineNumber = true
 [gpg]
-#	program = c:\\Program Files\\Git\\usr\\bin\\gpg.exe 
+{{ if eq .chezmoi.os "windows" -}}
+	program = c:\\Program Files\\Git\\usr\\bin\\gpg.exe 
+{{ end -}}
 [branch]
         autosetuprebase = always
 [repack]
@@ -102,3 +103,5 @@
 	gpgSign = true
 [url "https://"]
 	insteadOf = git://
+[url "ssh://git@github.com/"]
+	pushInsteadOf = https://github.com/
