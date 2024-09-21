@@ -2,14 +2,17 @@
 
 # exit immediately if needed binaries are already in $PATH
 command -v keepassxc-cli &> /dev/null;
-command -v git-delta &> /dev/null; && exit
+command -v delta &> /dev/null && exit
 
 case "$(uname -s)" in
 Darwin)
     echo "unsupported OS"
     ;;
 Linux)
-    command -v pacman &> /dev/null; && ( sudo pacman -S keepassxc git-delta)
+    if command -v pacman &> /dev/null; then
+        sudo pacman -S keepassxc git-delta
+        exit
+    fi
 
     if command -v apt &> /dev/null; then
         # On Debian/Ubuntu => headless => prevent installing all X related dependencies of keepassxc.
@@ -32,7 +35,7 @@ Linux)
             | grep "browser_download_url" | grep 'git-delta_.*_amd64\.deb' | head -n 1 | cut -d '"' -f 4)
         sudo dpkg -i $temp
         rm $temp
-        
+
         exit
     fi
     echo "Unsupported package manager."
