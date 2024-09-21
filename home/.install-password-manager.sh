@@ -8,8 +8,8 @@ Darwin)
     echo "unsupported OS"
     ;;
 Linux)
-    type pacman >/dev/null 2>&1 && { sudo pacman -S keepassxc }
-    type apt >/dev/null 2>&1 && { sudo apt install keepassxc }
+    type pacman >/dev/null 2>&1 && ( sudo pacman -S keepassxc )
+    type apt >/dev/null 2>&1 && ( sudo apt install keepassxc )
     ;;
 *)
     echo "unsupported OS"

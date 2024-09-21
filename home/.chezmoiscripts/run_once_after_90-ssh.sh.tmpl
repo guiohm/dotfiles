@@ -1,5 +1,6 @@
 {{ if not .codespaces -}}
 {{ if eq .chezmoi.os "linux" -}}
+{{ if not (stat (joinPath .chezmoi.homeDir ".ssh/id_rsa")) -}}
 #!/bin/sh
 
 FILE="$HOME/.ssh/id_rsa"
@@ -9,5 +10,6 @@ chmod 600 "$FILE"
 FILE="$HOME/.ssh/config"
 echo -n {{ keepassxcAttribute "SSH" "config" | quote }} > $FILE
 
-{{- end -}}
-{{- end -}}
+{{- end }}
+{{- end }}
+{{- end }}

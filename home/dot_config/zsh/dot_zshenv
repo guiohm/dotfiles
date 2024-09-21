@@ -14,5 +14,9 @@ export LESS='-R --use-color -Dd+y$Du+c$'
 # gpg signing
 export GPG_TTY=$(tty)
 
-# Path to your Oh My Zsh installation.
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+
 export ZSH="$HOME/.oh-my-zsh"
