@@ -3,6 +3,11 @@
 {{ if not (stat (joinPath .chezmoi.homeDir ".ssh/id_rsa")) -}}
 #!/bin/sh
 
+# The idea here is to pull data from keepassxc only when needed because
+# -1) it is painfully slow 
+# -2) it asks for the keepass db password each time
+# -3) chezmoi would otherwise check for changes in keepass with almost each interaction
+
 FILE="$HOME/.ssh/id_rsa"
 echo -n {{ keepassxcAttachment "SSH" "id_rsa" | quote }} > $FILE
 chmod 600 "$FILE"
