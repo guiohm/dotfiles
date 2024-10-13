@@ -162,7 +162,7 @@ format = '[ $symbol ($version) ]($style)'
 symbol = '󰈸'
 style = "bg:#86BBD8 fg:red"
 format = '[ $symbol ]($style)'
-disabled = false
+disabled = true
 
 [time]
 disabled = false
