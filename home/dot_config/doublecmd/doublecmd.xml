@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<doublecmd DCVersion="1.1.18 gamma" ConfigVersion="15">
+<doublecmd DCVersion="1.1.19 gamma" ConfigVersion="15">
   <Toolbars>
     <MainToolbar>
       <Row>
@@ -158,11 +158,11 @@
   </Toolbars>
   <MainWindow>
     <Position Save="True">
-      <Left>0</Left>
-      <Top>0</Top>
-      <Width>1788</Width>
-      <Height>1188</Height>
-      <PixelsPerInch>96</PixelsPerInch>
+      <Left>99</Left>
+      <Top>482</Top>
+      <Width>1358</Width>
+      <Height>882</Height>
+      <PixelsPerInch>85</PixelsPerInch>
       <Maximized>False</Maximized>
       <Splitter>50</Splitter>
     </Position>
@@ -473,6 +473,7 @@
       <MulRenFilenameWithFullPathInLog>False</MulRenFilenameWithFullPathInLog>
       <MulRenPathRangeSeparator>- </MulRenPathRangeSeparator>
     </MultiRename>
+    <DefaultDropEffect>True</DefaultDropEffect>
   </FileOperations>
   <Tabs>
     <Options>35729</Options>
@@ -553,7 +554,7 @@
     <Exclude>False</Exclude>
     <ExcludeDirs/>
     <CustomIcons>0</CustomIcons>
-    <PixelsPerInch>96</PixelsPerInch>
+    <PixelsPerInch>85</PixelsPerInch>
     <ShowInMenus Enabled="False">
       <Size>16</Size>
     </ShowInMenus>
@@ -704,7 +705,7 @@
     <DfltRightGoTo>1</DfltRightGoTo>
     <DfltKeep>5</DfltKeep>
     <DfltSaveDirHistory>False</DfltSaveDirHistory>
-    <FavTabsLastUniqueID>{577EEC59-B6DD-417C-9EF4-326DE554287E}</FavTabsLastUniqueID>
+    <FavTabsLastUniqueID>{D6AB4910-806F-4A5C-9067-220C1D8BF8AC}</FavTabsLastUniqueID>
   </FavoriteTabsOptions>
   <Lua>
     <PathToLibrary>liblua5.1.so.0</PathToLibrary>
@@ -727,14 +728,14 @@
       <Unique>AEB0DACF-1673-4204-BBB6-A38D05B503E7</Unique>
       <CustomView>False</CustomView>
       <FileSystem>&lt;General&gt;</FileSystem>
-      <PixelsPerInch>96</PixelsPerInch>
+      <PixelsPerInch>85</PixelsPerInch>
       <CursorBorder Enabled="False"/>
       <Columns>
         <Column>
           <Title>Name</Title>
           <Unique>4F6D09B4-2ECE-4721-8BE4-EBB1483EA92F</Unique>
           <FuncString>[DC().GETFILENAME{}]</FuncString>
-          <Width>472</Width>
+          <Width>418</Width>
           <Align>0</Align>
           <Font>
             <Name>Roboto Condensed</Name>
@@ -750,7 +751,7 @@
           <Title>Size</Title>
           <Unique>83A54235-3EB8-47CF-91A8-D6E08549E0B0</Unique>
           <FuncString>[DC().GETFILESIZE{}]</FuncString>
-          <Width>70</Width>
+          <Width>62</Width>
           <Align>1</Align>
           <Font>
             <Name>Roboto Condensed</Name>
@@ -766,7 +767,7 @@
           <Title>Date</Title>
           <Unique>18348485-9FEC-4A87-B93E-8C5A7E7EAF32</Unique>
           <FuncString>[DC().GETFILETIME{}]</FuncString>
-          <Width>140</Width>
+          <Width>124</Width>
           <Align>1</Align>
           <Font>
             <Name>Roboto Condensed</Name>
@@ -782,7 +783,7 @@
           <Title>Attr</Title>
           <Unique>91BA92A8-ABEA-4D9F-B85D-99A43A63F124</Unique>
           <FuncString>[DC().GETFILEATTR{}]</FuncString>
-          <Width>100</Width>
+          <Width>89</Width>
           <Align>0</Align>
           <Font>
             <Name>Roboto Condensed</Name>
@@ -798,7 +799,7 @@
           <Title>Owner</Title>
           <Unique>06E30022-4B2B-4430-BE47-9B71FF195ECE</Unique>
           <FuncString>[DC().GETFILEOWNER{}]</FuncString>
-          <Width>50</Width>
+          <Width>44</Width>
           <Align>0</Align>
           <Font>
             <Name>Roboto Condensed</Name>
@@ -814,7 +815,7 @@
           <Title>Group</Title>
           <Unique>44CA8B83-E69A-4AC9-A1BC-D58F5F1D3C9F</Unique>
           <FuncString>[DC().GETFILEGROUP{}]</FuncString>
-          <Width>50</Width>
+          <Width>44</Width>
           <Align>0</Align>
           <Font>
             <Name>Roboto Condensed</Name>

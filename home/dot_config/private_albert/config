@@ -87,7 +87,7 @@ enabled=true
 enabled=false
 
 [python.goldendict]
-enabled=true
+enabled=false
 
 [python.kill]
 enabled=true
