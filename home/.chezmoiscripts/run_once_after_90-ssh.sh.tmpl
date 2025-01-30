@@ -9,11 +9,13 @@
 # -3) chezmoi would otherwise check for changes in keepass with almost each interaction
 
 FILE="$HOME/.ssh/id_rsa"
-echo -n {{ keepassxcAttachment "SSH" "id_rsa" | quote }} > $FILE
+cat > $FILE << "EOF"
+{{ keepassxcAttachment "SSH" "id_rsa" }}
+EOF
 chmod 600 "$FILE"
 
 FILE="$HOME/.ssh/config"
-echo -n {{ keepassxcAttribute "SSH" "config" | quote }} > $FILE
+echo -e {{ keepassxcAttribute "SSH" "config" | quote }} > $FILE
 
 {{- end }}
 {{- end }}
