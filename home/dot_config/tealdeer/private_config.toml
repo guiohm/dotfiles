@@ -1,0 +1,26 @@
+[display]
+compact = true
+use_pager = false
+
+[style.description]
+foreground = { rgb = { r = 127, g = 127, b = 127 } }
+
+[style.command_name]
+#foreground = { rgb = { r = 255, g = 200, b = 210 } }
+foreground = "white"
+bold = false
+
+[style.example_text]
+foreground = "green"
+
+[style.example_code]
+#foreground = { rgb = { r = 225, g = 215, b = 210 } } 
+foreground = "yellow"
+
+[style.example_variable]
+foreground = "blue"
+underline = true
+
+[updates]
+auto_update = true
+auto_update_interval_hours = 720
