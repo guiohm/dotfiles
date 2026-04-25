@@ -67,7 +67,7 @@ alias svnst='svn st --ignore-externals'
 # Home dir version control
 alias c='chezmoi'
 alias cst='chezmoi status'
-alias cd='chezmoi diff'
+alias cdiff='chezmoi diff'
 alias cun='chezmoi unmanaged'
 alias cadd='chezmoi add'
 alias cread='chezmoi re-add'
