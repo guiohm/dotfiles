@@ -114,11 +114,24 @@ eval "$(atuin init zsh)"
 
 # ASDF is a version manager. usefull for Proton GE: https://asdf-vm.com/guide/getting-started.html
 # followup https://github.com/GloriousEggroll/proton-ge-custom
-. /opt/asdf-vm/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # fnm (Fast Node Manager)
 #export PATH=$HOME/.fnm:$PATH
 #eval "$(fnm env --use-on-cd)"
+
+# NNN file manager - https://github.com/jarun/nnn/wiki/Usage
+export NNN_BMS="d:$HOME/Downloads;g:$HOME/git/" # bookmarks
+export NNN_PLUG='o:fzopen;m:nmount;x:!chmod +x $nnn'
+export NNN_ORDER="t:$HOME/Downloads;S:/usr/bin"
+export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
+export NNN_FCOLORS='0000dd000000000000000000'
+stty start undef
+stty stop undef
+stty lnext undef
+
+# ranger file manager
+export RANGER_LOAD_DEFAULT_RC=false
 
 # ssh
 #export SSH_KEY_PATH="~/.ssh/id_rsa"

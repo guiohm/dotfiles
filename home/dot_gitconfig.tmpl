@@ -50,7 +50,9 @@
 [checkout]
 	defaultRemote = origin
 [commit]
+{{ if not (env "SSH_CONNECTION") }}
 	gpgSign = true
+{{ end }}
 [delta]
 	features = line-numbers decorations # also possible: side-by-side
 	navigate = true  # use n and N to move between diff sections
@@ -70,15 +72,16 @@
 	prompt = false
 [feature]
 	manyFiles = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [gc]
 	packrefs = true
 	auto = 256
 [grep]
 	lineNumber = true
-[gpg]
-{{ if eq .chezmoi.os "windows" -}}
-	program = c:\\Program Files\\Git\\usr\\bin\\gpg.exe 
-{{ end -}}
 [github]
 	user = guiohm
 [init]

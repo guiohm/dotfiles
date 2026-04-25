@@ -3,6 +3,7 @@ frontend=widgetsboxmodel
 hotkey=Ctrl+Space
 memoryDecay=0.72
 prioritizePerfectMatch=false
+showTray=false
 telemetry=false
 
 [albert]
@@ -11,6 +12,7 @@ global_handler_enabled=true
 [applications]
 enabled=true
 fuzzy=true
+terminal=kitty
 
 [calculator_qalculate]
 enabled=true
@@ -42,6 +44,20 @@ size=6
 [files]
 enabled=true
 fuzzy=true
+home\guiohm\.config\followSymlinks=true
+home\guiohm\.config\indexhidden=true
+home\guiohm\.config\maxDepth=255
+home\guiohm\.config\mimeFilters=inode/directory, application/*, audio/*, video/*, image/*
+home\guiohm\.config\nameFilters=@Invalid()
+home\guiohm\.config\scanInterval=60
+home\guiohm\.config\useFileSystemWatches=false
+home\guiohm\Documents\followSymlinks=true
+home\guiohm\Documents\indexhidden=true
+home\guiohm\Documents\maxDepth=255
+home\guiohm\Documents\mimeFilters=inode/directory, application/*, audio/*, video/*, image/*
+home\guiohm\Documents\nameFilters=@Invalid()
+home\guiohm\Documents\scanInterval=5
+home\guiohm\Documents\useFileSystemWatches=false
 home\guiohm\Downloads\followSymlinks=false
 home\guiohm\Downloads\indexhidden=false
 home\guiohm\Downloads\maxDepth=255
@@ -49,10 +65,17 @@ home\guiohm\Downloads\mimeFilters=inode/directory, application/*, audio/*, video
 home\guiohm\Downloads\nameFilters=@Invalid()
 home\guiohm\Downloads\scanInterval=20
 home\guiohm\Downloads\useFileSystemWatches=false
-home\guiohm\Sync\followSymlinks=false
-home\guiohm\Sync\indexhidden=false
+home\guiohm\Internet\followSymlinks=true
+home\guiohm\Internet\indexhidden=true
+home\guiohm\Internet\maxDepth=255
+home\guiohm\Internet\mimeFilters=inode/directory, application/*, audio/*, video/*, image/*
+home\guiohm\Internet\nameFilters=@Invalid()
+home\guiohm\Internet\scanInterval=5
+home\guiohm\Internet\useFileSystemWatches=false
+home\guiohm\Sync\followSymlinks=true
+home\guiohm\Sync\indexhidden=true
 home\guiohm\Sync\maxDepth=255
-home\guiohm\Sync\mimeFilters=inode/directory, application/*
+home\guiohm\Sync\mimeFilters=inode/directory, application/*, image/*, video/*, audio/*
 home\guiohm\Sync\nameFilters=@Invalid()
 home\guiohm\Sync\scanInterval=180
 home\guiohm\Sync\useFileSystemWatches=false
@@ -63,7 +86,7 @@ home\guiohm\mimeFilters=application/*
 home\guiohm\nameFilters=@Invalid()
 home\guiohm\scanInterval=55
 home\guiohm\useFileSystemWatches=false
-paths=/home/guiohm, /home/guiohm/Downloads, /home/guiohm/Sync
+paths=/home/guiohm/.config, /home/guiohm/Documents, /home/guiohm/Internet, /home/guiohm/Sync
 
 [hash]
 enabled=true
@@ -94,6 +117,9 @@ enabled=true
 
 [python.pacman]
 enabled=true
+
+[python.syncthing]
+enabled=false
 
 [qmlboxmodel]
 clear_on_hide=false
