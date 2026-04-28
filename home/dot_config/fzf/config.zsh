@@ -49,6 +49,11 @@ export FZF_ALT_C_OPTS="
 DISABLE_FZF_AUTO_COMPLETION="false"
 DISABLE_FZF_KEY_BINDINGS="false" # Ctrl-T Ctrl-R Alt-C
 
+# https://github.com/junegunn/fzf/wiki/Configuring-fuzzy-completion#dedicated-completion-key
+#export FZF_COMPLETION_TRIGGER=''
+#bindkey '^T' fzf-completion
+#bindkey '^I' $fzf_default_completion
+
 # Custom uses
 
 # fo: open a file with enter or ctrl-e to edit

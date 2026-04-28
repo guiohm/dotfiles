@@ -1,4 +1,6 @@
+#export PATH="$PATH:$HOME/go/bin:/usr/local/go/bin:$HOME/.local/bin"
 export PATH="/usr/lib/colorgcc/bin/:$HOME/.local/bin:$PATH:$HOME/bin:$HOME/bin/scripts"
+
 export CCACHE_PATH="/usr/bin"
 
 # Preferred editor for local and remote sessions
