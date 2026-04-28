@@ -14,6 +14,9 @@ export MERGEPROG="meld"
 
 export LESS='-R --use-color -Dd+y$Du+c$'
 
+# In conjonction with ~/.config/systemd/user/ssh-agent.service
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # gpg signing
 export GPG_TTY=$(tty)
 

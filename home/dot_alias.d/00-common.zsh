@@ -54,6 +54,15 @@ alias r='fc -s'
 # ripgrep default --smart-case
 alias rg="rg -S" # ripgrep default --smart-case
 
+# General-purpose rsync over SSH:
+# Good for configs, text, maildir-ish trees, mixed folders.
+alias rsync-jitter='rsync -aHAXvz --numeric-ids --info=progress2 --partial --partial-dir=.rsync-partial --human-readable --protect-args -e "ssh -o ServerAliveInterval=15 -o ServerAliveCountMax=8 -o IPQoS=throughput"'
+
+# Archive/compressed/encrypted backup transfer:
+# Good for .zst, .gz, .xz, .zip, .age, .gpg, media files.
+# No -z because compressed/encrypted files do not benefit from SSH/rsync compression.
+alias rsync-archive='rsync -aHAXv --numeric-ids --info=progress2 --append-verify --human-readable --protect-args -e "ssh -o ServerAliveInterval=15 -o ServerAliveCountMax=8 -o IPQoS=throughput"'
+
 alias journalctl="journalctl --no-hostname"
 alias journalShow="sudo journalctl --no-hostname -xen10000"
 alias journalFollow="sudo journalctl --no-hostname -xfn10000"
