@@ -103,7 +103,7 @@ alias gsr='make reset_submodules'
 # The 'ls' family (this assumes you use a recent GNU ls)
 #-------------------------------------------------------------
 alias l="ll"
-alias ll="ls -Alh --group-directories-first"
+alias ll="ls -Alh --group-directories-first --color=always"
 #alias ls='ls -hF --color=auto'  # add colors for filetype recognition
 alias ls='lsd'
 alias la='ls -Al'          # show hidden files
