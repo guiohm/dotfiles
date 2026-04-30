@@ -110,7 +110,12 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 # history search
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
+# Do not let mouse-wheel-as-arrow scroll through shell history.
+bindkey "${terminfo[kcuu1]}" undefined 2>/dev/null || true
+bindkey "${terminfo[kcud1]}" undefined 2>/dev/null || true
+bindkey '^[[A' undefined
+bindkey '^[[B' undefined
 
 # ASDF is a version manager. usefull for Proton GE: https://asdf-vm.com/guide/getting-started.html
 # followup https://github.com/GloriousEggroll/proton-ge-custom
@@ -148,7 +153,7 @@ eval "$(starship init zsh)"
 
 # Load local alias snippets, not managed by chezmoi
 if [[ -d "$HOME/.alias.d" ]]; then
-  for f in "$HOME"/.alias.d/*.zsh(N); do
+  for f in "$HOME"/.alias.d/*(N); do
     source "$f"
   done
 fi

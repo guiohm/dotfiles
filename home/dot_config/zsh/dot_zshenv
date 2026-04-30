@@ -14,7 +14,7 @@ fi
 export DIFFPROG="meld"
 export MERGEPROG="meld"
 
-export LESS='-R --use-color -Dd+y$Du+c$'
+export LESS='-R -Q --use-color'
 
 # In conjonction with ~/.config/systemd/user/ssh-agent.service
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"

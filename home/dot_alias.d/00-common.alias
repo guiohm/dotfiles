@@ -46,7 +46,7 @@ alias yay="yay --color=auto -v"
 alias r='fc -s'
 
 # ripgrep default --smart-case
-alias rg="rg -S" # ripgrep default --smart-case
+alias rg="rg -Sp" # ripgrep default --smart-case + pretty
 
 # General-purpose rsync over SSH:
 # Good for configs, text, maildir-ish trees, mixed folders.
